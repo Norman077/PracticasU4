@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explotando un globo</title>
+</head>
+<body>
+<p>🎈</p>
+</body>
+<script>
+    const p = document.querySelector("p");
+    let size;
+
+    function setSize(params){
+     size=newSize;
+     p.style.fontSize = size + "px"
+    }
+    setSize(20);
+    
+    function handleArrow(e){
+        if (e.key=="ArrowUp"){
+if (size > 100){
+    p.textContent="🎆";
+    document.body.removeEventListener("keydown", handleArrow);
+} else{
+   setSize(size * 1.1);
+   e.preventDefault();
+}
+        }   else if (e.key == "ArrowDown"){
+            setSize(size * 0.9);
+            e.preventDefault();
+        }
+    }
+    document.body.addEventListener("keydown", handleArrow);
+</script>
+</html>
